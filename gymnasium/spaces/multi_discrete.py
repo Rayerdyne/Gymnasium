@@ -143,7 +143,7 @@ class MultiDiscrete(Space[NDArray[np.integer]]):
 
             return np.array(_apply_mask(mask, self.nvec, self.start), dtype=self.dtype)
 
-        return (self.np_random.random(self.nvec.shape) * self.nvec + self.start).astype(
+        return np.floor(self.np_random.random(self.nvec.shape) * self.nvec + self.start).astype(
             self.dtype
         )
 
